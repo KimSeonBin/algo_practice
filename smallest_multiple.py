@@ -1,4 +1,4 @@
-#codingdojang.com 132번 문제.
+#codingdojang.com 132번 문제
 primenumber = [2]
 interval = 20; temp = 3
 
