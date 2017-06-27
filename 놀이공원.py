@@ -24,6 +24,8 @@ def draw_card_CC() :
 	card_CC.insert(0, temp)
 	return temp
 
+#CC?, CH?를 구분하기 위해 만들었던 함수.
+#겸사겸사 G2J도 넣어 G2J 처리를 용이하게 할려고 끼어 넣었습니다.
 def check_where(position) :
 	if position.find('CC') != -1 :
 		return 'CC'
@@ -33,8 +35,9 @@ def check_where(position) :
 		return 'G2J'
 	else :
 		return 'ANY'
+
 #R과 U의 위치를 미리 파악한 후 다음 R, U의 위치를 빠르게 찾게 하기위해
-#만들었습니다.
+#만들었습니다.(찬스카드 다음 R or U 로 이동하시오.)
 def where_R() :
 	i = 0
 	while i < len(matrix):
@@ -89,8 +92,8 @@ def do_card(draw) :
 	elif draw == 'R' :
 		pos = next_R(pos)
 		matrix_count[pos] += 1
-	elif draw == '-3' :
-		pos = pos - 3
+	elif draw == '-3' :		#3칸 뒤로는 3칸 뒤에 CC가 있을수도 있어서 pos만 바꾸고
+		pos = pos - 3		#메인 반복문에서 다시 한번 CC에 가는지 체크합니다.
 	elif draw == 'U' :
 		pos = next_U(pos)
 		matrix_count[pos] += 1
@@ -107,7 +110,7 @@ while i < 1000000 :
 	else :
 		double_count = 0
 	
-	#check double_count 3
+	#더블이 3번 나오면 JAIL행
 	if double_count == 3 :
 		double_count = 0
 		pos = matrix.index('JAIL')
@@ -139,7 +142,7 @@ while i < 1000000 :
 		matrix_count[pos] += 1
 	i += 1
 
-#제가 많이 부족해서 sorting함수를 구현을 해서 matrix, matrix_count를 
+#제가 많이 부족해서 sorting함수를 따로 구현을 해서 matrix, matrix_count를 
 #함께 sorting해야 할 것 같습니다...
 #matrix 리스트내에서 한꺼번에 할 수 있는 방법이 있을거 같긴한데
 #파이썬을 시작한 지 며칠 안 돼서 잘 모르겠네요...
@@ -154,5 +157,4 @@ for i in range(length) :
 			matrix_count[j], matrix_count[j+1] = matrix_count[j+1], matrix_count[j]
 			matrix[j], matrix[j+1] = matrix[j+1], matrix[j]
 
-print(matrix_count)
 print(str(temp.index(matrix[0])), str(temp.index(matrix[1])), str(temp.index(matrix[2])))
