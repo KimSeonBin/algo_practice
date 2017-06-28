@@ -1,3 +1,4 @@
+#코딩도장 13번 문제
 import re
 def split_blank(sentence) :
 	result = re.sub('[ \t]', '', sentence)
