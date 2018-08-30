@@ -1,1 +1,1 @@
-http://codingdojang.com/의 문제들을 풀어보며 코딩 연습하는 겁니다.
+코딩 도장, 백준 온라인 Judge, programmers 등 여러 알고리즘 사이트에서 알고리즘 연습한 코드를 올립니다.
