@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include <vector>
 #include <algorithm>
+using namespace std;
 //2018.09.08
 //시험이 끝난 후 풀이가 생각나 쓴 코드이기에 답인지는 확실하지 않습니다.
 
@@ -42,7 +43,7 @@ vector<int> sorting(vector<int> element){
 
 
 int main(){
-  vector<int> a = {4,5,6,7};
+  vector<int> a = {1,3,3,4};
   vector<int> an = sorting(a);
   for(int i = 0; i < a.size(); i++){
     printf("%d ", an[i]);
